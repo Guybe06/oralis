@@ -1,7 +1,7 @@
 const sqlite3 = require("sqlite3");
 const path = require("path");
 
-const dbPath = path.join(process.cwd(), 'backend', 'database', 'data', process.env.DBNAME);
+const dbPath = path.join(process.cwd(), 'backend', 'database', 'data', 'oralisStore.crypt.db');
 
 const initializeSQLite = () => {
   const db = new sqlite3.Database(dbPath);
