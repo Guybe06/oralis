@@ -1,10 +1,6 @@
 const express = require("express");
 const router = express.Router();
 
-router.get("/", (req, res) => {
-    res.send("Bienvenue sur l'Api Oralis");
-});
-
 const cashFlowRoutes = require('./routes/cashFlowRoutes');
 const categoryRoutes = require('./routes/categoryRoutes');
 const departmentRoutes = require('./routes/departmentRoutes');
