@@ -5,7 +5,7 @@ const transactionTypeController = require("../../controllers/transactionTypeCont
 router.get("/", async (req, res) => {
   try {
     const data = await transactionTypeController.getTransactionTypeData();
-    res.json(data);
+    res.status(200).json({ success: true, data: data });
   } catch (error) {
     console.error("Erreur lors de la récupération des données de type de transaction:", error);
     res.status(500).json({ success: false, error: "Erreur interne du serveur" });

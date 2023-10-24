@@ -5,7 +5,7 @@ const reportController = require("../../controllers/reportController");
 router.get("/", async (req, res) => {
   try {
     const data = await reportController.getReportData();
-    res.json(data);
+    res.status(200).json({ success: true, data: data });
   } catch (error) {
     console.error("Erreur lors de la récupération des données de rapport:", error);
     res.status(500).json({ success: false, error: "Erreur interne du serveur" });
