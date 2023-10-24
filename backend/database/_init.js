@@ -1,23 +1,7 @@
-const os = require('os');
-const fse = require('fs-extra');
 const sqlite3 = require("sqlite3").verbose();
 const path = require("path");
 
-const userHomeDir = os.homedir();
-const hiddenDirPath = path.join(userHomeDir, '.oralisStore');
-
-if (!fse.existsSync(hiddenDirPath)) {
-  fse.mkdirSync(hiddenDirPath);
-}
-
-const dbPath = path.join(hiddenDirPath, 'oralisStore.crypt.db');
-
-if (!fse.existsSync(dbPath)) {
-  fse.closeSync(fse.openSync(dbPath, 'w'));
-  fse.chmodSync(dbPath, '777');
-}
-
-// const dbPath = path.join(process.cwd(), 'backend', 'database', 'data', 'oralisStore.crypt.db');
+const dbPath = path.join(process.cwd(), 'backend', 'database', 'data', 'oralisStore.crypt.db');
 
 const initializeSQLite = () => {
   const db = new sqlite3.Database(dbPath);
